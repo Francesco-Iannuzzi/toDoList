@@ -44,6 +44,13 @@ body {
 
 /* #region app_main */
 
+.empty_message {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: var(--app-primary);
+}
+
 .todo_list {
   padding: 2rem 0;
   list-style: none;
