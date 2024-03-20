@@ -19,16 +19,31 @@ function createActivityTemplate(activity) {
     </li>`
 }
 
-// show iniatial activitis
+// show initial activitis
 showContent()
 
 // decide what show
 function showContent() {
     // check if there is acivities in the array
+
+    // if there are show the activities
     if (activities.length > 0) {
-        emptyMessage.innerText = 'Ci sono elementi'
+
+        // clean the todolist
+        todoList.innerHTML = '';
+
+        // cycle the array and stamp the items
+        activities.forEach(activity => {
+
+            todoList.innerHTML += createActivityTemplate(activity)
+        });
+
+        // clean empty message
+        emptyMessage.innerText = ''
+
+        // if there aren't show empty message
     } else {
-        emptyMessage.innerText = 'There is no Activity yet!'
+        emptyMessage.innerText = 'There are no Activities yet!'
     }
 }
 
@@ -36,11 +51,15 @@ function showContent() {
 // add activity
 function addActivity() {
 
-    // intercept the new written activity
-    const newActivity = addInput.value;
+    // check if there are a characters in the input
+    if (addInput.value.length > 0) {
 
-    // add the new activity to the activities array
-    activities.push(newActivity);
+        // intercept the new written activity
+        const newActivity = addInput.value.trim();
+
+        // add the new activity to the activities array
+        activities.push(newActivity);
+    }
 
     // clean the input
     addInput.value = ''
@@ -49,8 +68,6 @@ function addActivity() {
 // listen the click and call the function
 addButton.addEventListener("click", function () {
     addActivity()
-    console.log('cliccato');
-    console.log(activities);
 
     // show new activities
     showContent()
