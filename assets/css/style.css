@@ -11,6 +11,22 @@
 
 /* #endregion utilities */
 
+/* #region font-size */
+.title>h1 {
+  font-size: 2rem;
+}
+
+.empty_message {
+  font-size: 1.8rem;
+}
+
+.todo_text,
+.todo_add>input {
+  font-size: 1.5rem;
+}
+
+/* #endregion font-size */
+
 /* #region common */
 
 body {
@@ -25,6 +41,7 @@ body {
 }
 
 .title {
+  height: 10rem;
   background-color: var(--app-primary);
   border-radius: 1rem;
   padding: 2rem 1rem;
@@ -35,9 +52,12 @@ body {
 
 .title>h1 {
   color: var(--app-light);
-  font-size: 2rem;
   font-weight: 600;
   margin: 0;
+}
+
+.title>.logo {
+  height: 100%;
 }
 
 /* #endregion app_header */
@@ -47,7 +67,6 @@ body {
 .empty_message {
   text-align: center;
   margin-top: 4rem;
-  font-size: 1.8rem;
   color: var(--app-primary);
 }
 
@@ -79,7 +98,6 @@ body {
 .todo_text {
   margin: 0;
   margin-left: 1rem;
-  font-size: 1.5rem;
 }
 
 button>.check {
@@ -99,7 +117,6 @@ button>.check {
   padding: 1rem 0 1rem 1rem;
   margin: 0;
   margin-left: 1rem;
-  font-size: 1.5rem;
   flex-grow: 1;
 }
 
