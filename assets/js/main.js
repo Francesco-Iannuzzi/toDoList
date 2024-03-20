@@ -70,6 +70,7 @@ function addActivity() {
     addInput.value = ''
 }
 
+
 // listen the click on checks item and remove the activity
 function checksCliccable() {
     const checksItem = document.querySelectorAll('.todo_check');
@@ -81,13 +82,12 @@ function checksCliccable() {
             // remove activity
             activities.splice(index, 1);
 
-            console.log('cliccato');
-
             // show new todolist
             showContent()
         })
     });
 }
+
 
 // listen the click and call the function
 addButton.addEventListener("click", function () {
@@ -96,6 +96,3 @@ addButton.addEventListener("click", function () {
     // show new activities
     showContent();
 })
-
-
-
