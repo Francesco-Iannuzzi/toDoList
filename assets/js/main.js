@@ -20,11 +20,15 @@ function createActivityTemplate(activity) {
 }
 
 // show initial activitis
-showContent()
+showContent();
 
 // decide what show
 function showContent() {
-    // check if there is acivities in the array
+    // clean empty message and todolist
+    emptyMessage.innerText = '';
+    todoList.innerText = '';
+
+    // check if there are acivities in the array
 
     // if there are show the activities
     if (activities.length > 0) {
@@ -38,13 +42,13 @@ function showContent() {
             todoList.innerHTML += createActivityTemplate(activity)
         });
 
-        // clean empty message
-        emptyMessage.innerText = ''
+        checksCliccable();
 
         // if there aren't show empty message
     } else {
         emptyMessage.innerText = 'There are no Activities yet!'
     }
+
 }
 
 
@@ -61,16 +65,36 @@ function addActivity() {
         activities.push(newActivity);
     }
 
+
     // clean the input
     addInput.value = ''
 }
 
+// listen the click on checks item and remove the activity
+function checksCliccable() {
+    const checksItem = document.querySelectorAll('.todo_check');
+
+    // cycle the check items and make they cliccable
+    checksItem.forEach(function (check, index) {
+        check.addEventListener("click", function () {
+
+            // remove activity
+            activities.splice(index, 1);
+
+            console.log('cliccato');
+
+            // show new todolist
+            showContent()
+        })
+    });
+}
+
 // listen the click and call the function
 addButton.addEventListener("click", function () {
-    addActivity()
+    addActivity();
 
     // show new activities
-    showContent()
+    showContent();
 })
 
 
